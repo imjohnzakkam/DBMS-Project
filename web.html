@@ -102,20 +102,83 @@
           background-size:cover;
           background-attachment: fixed;
         }
+        .collapsible {
+  background-color:transparent;
+  color: white;
+  cursor: pointer;
+   width: 10%;
+  border: none;
+  
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color:transparent;
+}
 
     </style>
     <title>hey</title>
     <body>
     <i class="material-icons w3-spin w3-jumbo">home</i> 
   <div>
-    <img style="margin: 9% 10% 10%;float: left;" src="/content/images/yoga.jpeg" alt="YOGA SRI VARSHAN" >
-    <img style="margin: 9% 15% 10%;align-self: center;" src="/content/images/john.jpeg" alt="JOHN ZAKKAM">
-    <img style="margin: 9% 10% 10%;float: right;" src="/content/images/pk.jpeg" alt="PALETI KRISHNASAI">
+    <img style="margin: 9% 10% 10%;float: left;" 
+          src="/content/images/yoga.jpeg" 
+          alt="YOGA SRI VARSHAN" 
+          class="collapsible" >
+          <div class="content" >
+            <p> YO I AM KING OF KINGS</p>
+          </div>
+    <img style="margin: 9% 15% 10%;align-self: center;" 
+          src="/content/images/john.jpeg" 
+          alt="JOHN ZAKKAM"
+          class="collapsible">
+    <img style="margin: 9% 10% 10%;float: right;" 
+          src="/content/images/pk.jpeg" 
+          alt="PALETI KRISHNASAI"
+          class="collapsible">
   </div>
   <div>
-    <img style="margin: 1% 0px 15% 27%;float: left;" src="/content/images/rakesh.jpeg" alt="RAKESH SUVVARI">
-    <img style="margin: 1% 27% 15% 0px;float: right;" src="/content/images/dv.jpeg" alt="DARSHAN VSS">
+    <img style="margin: 1% 0px 15% 27%;float: left;" 
+          src="/content/images/rakesh.jpeg" 
+          alt="RAKESH SUVVARI"
+          class="collapsible">
+    <img style="margin: 1% 27% 15% 0px;float: right;" 
+          src="/content/images/dv.jpeg" 
+          alt="DARSHAN VSS"
+          class="collapsible">
   </div>
-    </body>
+
+  
+
+
+    
+
+
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+
+</body>
     
 </html>
